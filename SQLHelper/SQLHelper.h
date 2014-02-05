@@ -3,7 +3,7 @@
 Created by, Veer Shubhranshu Shrivastav
 Mail: mail@veershubhranshu.com
 
-Created for Tata Consultancy Services.
+Created for the purpose of Open Source Project to enhance the use of Pro*C
 
 This file is a part of Project SQLHelper - An API for Pro*C.
 
