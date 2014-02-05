@@ -3,7 +3,6 @@
 Created by, Veer Shubhranshu Shrivastav
 Mail: mail@veershubhranshu.com
 
-Created for Tata Consultancy Services.
 
 This document is copyrighted by Veer Shubhranshu Shrivastav under Tata Consultancy Services Ltd.
 And is prohibited for distribution.
