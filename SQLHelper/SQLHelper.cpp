@@ -1,4 +1,3 @@
-
 /* Result Sets Interface */
 #ifndef SQL_CRSR
 #  define SQL_CRSR
@@ -186,8 +185,6 @@ static const short sqlcud0[] =
 
 Created by, Veer Shubhranshu Shrivastav
 Mail: mail@veershubhranshu.com
-
-Created for Tata Consultancy Services.
 
 This document is copyrighted by Veer S. Shrivastav under Tata Consultancy Services Ltd.
 And is prohibited for distribution.
