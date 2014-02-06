@@ -39,7 +39,7 @@ using namespace std;
 
 int main()
 {
-     SQLHelper DB("h11orauser3d@unixdb","tcshyd");
+     SQLHelper DB("scott@unixdb","tiger");
      try
      {
           cout<<"Connecting to database using: h11orauser3d@unxidb"<<endl;

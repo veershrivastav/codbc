@@ -38,7 +38,7 @@ using namespace std;
 
 int main()
 {
-     SQLHelper	DB("h11orauser3d@unixdb","tcshyd");
+     SQLHelper	DB("veer@unixdb","tiger");
      vector< vector<string> > rowData;
      try
      {

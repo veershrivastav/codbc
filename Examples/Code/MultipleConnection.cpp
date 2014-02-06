@@ -70,8 +70,8 @@ using namespace std;
 
 int main()
 {
-     SQLHelper DB("h11orauser3d@unixdb","tcshyd");
-     SQLHelper DB2("h11orauser2d@unixdb","tcshyd");
+     SQLHelper DB("scott@unixdb","tiger");
+     SQLHelper DB2("veer@unixdb","Veer");
      vector< vector<string> > rowData;
      try
      {

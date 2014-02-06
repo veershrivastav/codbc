@@ -26,8 +26,8 @@ class DatabaseHelper
      public:
      DatabaseHelper()
      {
-          DB.setUserName("h11orauser3d@unixdb");
-          DB.setPassword("tcshyd");
+          DB.setUserName("veer@unixdb");
+          DB.setPassword("veer");
      }
      DatabaseHelper(string userName, string Password)
      {
