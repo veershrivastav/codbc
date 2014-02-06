@@ -32,10 +32,11 @@ class SQLHelper
      void setDBStatus(int);
      string trim(string);
      
-     public:
+     /* These two parameters are for initiating select */
      int MAX_VAR_SIZE;
      int MAX_NAME_SIZE;
      
+     public:
      SQLHelper();
      SQLHelper(string , string);
      ~SQLHelper();
