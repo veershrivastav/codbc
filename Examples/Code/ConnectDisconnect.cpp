@@ -42,11 +42,11 @@ int main()
      SQLHelper DB("scott@unixdb","tiger");
      try
      {
-          cout<<"Connecting to database using: h11orauser3d@unxidb"<<endl;
+          cout<<"Connecting to database using: sccott@unixdb"<<endl;
           DB.openDB();
           if(DB.checkDBStatus())
           {
-               cout<<"Connected to h11orauser3d@unxidb"<<endl;
+               cout<<"Connected to scott@unixdb"<<endl;
                cout<<"Now the program will disconnect"<<endl;
                cout<<"As soon as the destructor of SQLHelper is called the program disconnects from database"<<endl;
                cout<<"Disconnecting..."<<endl;

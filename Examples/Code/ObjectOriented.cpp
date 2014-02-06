@@ -68,7 +68,7 @@ class A
      {}
      void callSQL(string sql)
      {
-          DatabaseHelper DB("h11orauser3d@unixdb","tcshyd");
+          DatabaseHelper DB("test@unixdb","test");
           DB.connect();
           cout<<"Connected to Database"<<endl;
           DB.execDB(sql);
