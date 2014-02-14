@@ -223,13 +223,11 @@ void SQLHelper::setPassword(string password)
 }
 int SQLHelper::openDB()
 {
-    /* EXEC SQL BEGIN DECLARE SECTION; */ 
 
 
         char *h_userName;
         char *h_userPassword;
 
-    /* EXEC SQL END DECLARE SECTION; */ 
 
     
     h_userName = new char[DBUserName.length()];
@@ -238,7 +236,6 @@ int SQLHelper::openDB()
     strcpy(h_userName, (char *)DBUserName.c_str());
     strcpy(h_userPassword, (char *)DBPassword.c_str());
 
-    /* EXEC SQL CONNECT :h_userName IDENTIFIED BY :h_userPassword; */ 
 
 {
     struct sqlexd sqlstm;
@@ -316,19 +313,16 @@ int SQLHelper::getDBStatus()
 }
 int SQLHelper::execSQL(string p_sql)
 {
-     /* EXEC SQL BEGIN DECLARE SECTION; */ 
 
 
      char *h_sql;
 
-     /* EXEC SQL END DECLARE SECTION; */ 
 
 
      h_sql = new char[p_sql.length()];
      
      strcpy(h_sql, (char *)p_sql.c_str());
 
-     /* EXEC SQL EXECUTE IMMEDIATE :h_sql; */ 
 
 {
      struct sqlexd sqlstm;
@@ -365,8 +359,6 @@ int SQLHelper::execSQL(string p_sql)
 
 
 
-     /* EXEC SQL COMMIT; */ 
-
 {
      struct sqlexd sqlstm;
      sqlstm.sqlvsn = 12;
@@ -397,7 +389,6 @@ int SQLHelper::execSQL(string p_sql)
 }
 SQLHelper::~SQLHelper()
 {
-     /* EXEC SQL COMMIT WORK RELEASE; */ 
 
 {
      struct sqlexd sqlstm;
@@ -505,8 +496,7 @@ vector< vector<string> > SQLHelper::selectDB(string sql)
 
           /** End select statement **/
           
-/*           EXEC SQL INCLUDE SQLCA;
- */ 
+
 /*
  * $Header: sqlca.h 24-apr-2003.12:50:58 mkandarp Exp $ sqlca.h 
  */
@@ -606,8 +596,7 @@ SQLCA_STORAGE_CLASS struct sqlca sqlca
 #endif
  
 /* end SQLCA */
-/*           EXEC SQL INCLUDE SQLDA;
- */ 
+
 /*
  * $Header: sqlda.h 08-may-2007.05:58:33 ardesai Exp $ sqlda.h 
  */
@@ -699,7 +688,6 @@ typedef struct SQLDA SQLDA;
 
 
 
-          /* EXEC SQL BEGIN DECLARE SECTION; */ 
 
 
           char *sqlStatement; //for prepare statement.
@@ -711,7 +699,6 @@ typedef struct SQLDA SQLDA;
           char *in_name;
           char *input_buf;
 
-          /* EXEC SQL END DECLARE SECTION; */ 
 
 
             data = new char[MAX_VAR_SIZE];
@@ -719,12 +706,10 @@ typedef struct SQLDA SQLDA;
             in_name = new char[MAX_NAME_SIZE];
             input_buf = new char[MAX_VAR_SIZE];
 
-          /* EXEC SQL WHENEVER SQLERROR GOTO throwException; */ 
 
 
           /** Allocating descriptor **/
 
-          /* EXEC SQL ALLOCATE DESCRIPTOR 'input_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -744,7 +729,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL ALLOCATE DESCRIPTOR 'output_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -774,7 +758,6 @@ typedef struct SQLDA SQLDA;
 
 
           //Prepare Statement for further calculation.
-          /* EXEC SQL PREPARE S from :sqlStatement; */ 
 
 {
           struct sqlexd sqlstm;
@@ -811,12 +794,10 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL DECLARE C CURSOR FOR S; */ 
 
 
 
           /** Process Input **/
-          /* EXEC SQL DESCRIBE INPUT S USING DESCRIPTOR 'input_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -835,7 +816,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL GET DESCRIPTOR 'input_descriptor' :input_count = COUNT; */ 
 
 {
           struct sqlexd sqlstm;
@@ -878,7 +858,6 @@ typedef struct SQLDA SQLDA;
           for(i=0;i<input_count;i++)
           {
                in_occurs=i+1;
-               /* EXEC SQL GET DESCRIPTOR 'input_descriptor' VALUE :in_occurs :in_name = NAME; */ 
 
 {
                struct sqlexd sqlstm;
@@ -928,8 +907,6 @@ typedef struct SQLDA SQLDA;
 
                input_len=strlen(input_buf);
 
-               /* EXEC SQL SET DESCRIPTOR 'input_descriptor' VALUE :in_occurs TYPE = :type,
-               LENGTH = :input_len, DATA = :input_buf; */ 
 
 {
                struct sqlexd sqlstm;
@@ -993,7 +970,6 @@ typedef struct SQLDA SQLDA;
           }
           /*** Process input **/
 
-          /* EXEC SQL OPEN C USING DESCRIPTOR 'input_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1019,7 +995,6 @@ typedef struct SQLDA SQLDA;
           /*** Processing Output ***/
 
 
-          /* EXEC SQL DESCRIBE S USING DESCRIPTOR 'output_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1038,7 +1013,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL GET DESCRIPTOR 'output_descriptor' :output_count=COUNT; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1081,7 +1055,6 @@ typedef struct SQLDA SQLDA;
           for(i=0;i<output_count;i++)
           {
                occurs=i+1;
-               /* EXEC SQL GET DESCRIPTOR 'output_descriptor' VALUE :occurs :name=NAME; */ 
 
 {
                struct sqlexd sqlstm;
@@ -1127,7 +1100,6 @@ typedef struct SQLDA SQLDA;
 
 
 
-               /* EXEC SQL SET DESCRIPTOR 'output_descriptor' VALUE :occurs TYPE = :type , LENGTH = :len; */ 
 
 {
                struct sqlexd sqlstm;
@@ -1182,15 +1154,11 @@ typedef struct SQLDA SQLDA;
 
           }
 
-          /** FETCH AND STORE IN VECTOR **/
-
-          /* EXEC SQL WHENEVER NOT FOUND GOTO end_select; */ 
 
 
           for(;;)
           {
 
-               /* EXEC SQL FETCH C INTO DESCRIPTOR 'output_descriptor'; */ 
 
 {
                struct sqlexd sqlstm;
@@ -1216,8 +1184,6 @@ typedef struct SQLDA SQLDA;
 	          for(i=0;i<output_count;i++)
                {
                     occurs = i+1;
-                    /* EXEC SQL GET DESCRIPTOR 'output_descriptor' VALUE :occurs
-		          :data = DATA, :indi = INDICATOR; */ 
 
 {
                     struct sqlexd sqlstm;
@@ -1278,7 +1244,6 @@ typedef struct SQLDA SQLDA;
                     {
                          if(strlen(data)>MAX_VAR_SIZE)
                               data[MAX_VAR_SIZE]='\0';
-                         //trim(data);
                          row.push_back(trim(data));
                     }
                }
@@ -1290,7 +1255,6 @@ typedef struct SQLDA SQLDA;
 
           end_select:
           
-          /* EXEC SQL CLOSE C; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1309,7 +1273,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL COMMIT WORK; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1329,7 +1292,6 @@ typedef struct SQLDA SQLDA;
 
 
 
-          /* EXEC SQL DEALLOCATE DESCRIPTOR 'input_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1349,7 +1311,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL DEALLOCATE DESCRIPTOR 'output_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1373,7 +1334,6 @@ typedef struct SQLDA SQLDA;
           return rowData;
 
           throwException:
-          /* EXEC SQL CLOSE C; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1392,7 +1352,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL COMMIT WORK; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1411,7 +1370,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL DEALLOCATE DESCRIPTOR 'input_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
@@ -1431,7 +1389,6 @@ typedef struct SQLDA SQLDA;
 }
 
 
-          /* EXEC SQL DEALLOCATE DESCRIPTOR 'output_descriptor'; */ 
 
 {
           struct sqlexd sqlstm;
