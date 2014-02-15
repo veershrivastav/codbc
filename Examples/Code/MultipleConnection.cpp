@@ -5,7 +5,7 @@ Copyright: Veer S. Shrivastav
 
 SQLHelper version1.0
 
-SQLHelper - SelectDBExample.cpp
+SQLHelper - MultipleConnection.cpp
 
 In this file, I am trying to show you how to use Multiple connection
 with the database. this is one of the best way to use this library 
