@@ -186,7 +186,7 @@ static const short sqlcud0[] =
 Created by, Veer Shubhranshu Shrivastav
 Mail: mail@veershubhranshu.com
 
-This document is copyrighted by Veer S. Shrivastav under Tata Consultancy Services Ltd.
+This document is copyrighted by Veer S. Shrivastav.
 And is prohibited for distribution.
 
 ***/

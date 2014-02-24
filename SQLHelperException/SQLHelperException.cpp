@@ -4,7 +4,7 @@ Created by, Veer Shubhranshu Shrivastav
 Mail: mail@veershubhranshu.com
 
 
-This document is copyrighted by Veer Shubhranshu Shrivastav under Tata Consultancy Services Ltd.
+This document is copyrighted by Veer Shubhranshu Shrivastav.
 And is prohibited for distribution.
 
 ***/
